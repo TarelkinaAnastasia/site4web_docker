@@ -4,6 +4,9 @@ services:
 
   client:
     image: site4web_client
+    build:
+      context: client
+      dockerfile: Dockerfile
     command: npm start
     ports:
       - "3000:3000"
@@ -13,6 +16,9 @@ services:
 
   server:
     image: site4web_server
+    build:
+      context: server
+      dockerfile: Dockerfile
     command: npm run dev
     ports:
       - "5000:5000"
