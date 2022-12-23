@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+
+  client:
+    image: site4web_client
+    command: npm start
+    ports:
+      - "3000:3000"
+    restart: always
+    depends_on:
+      - server
+
+  server:
+    image: site4web_server
+    command: npm run dev
+    ports:
+      - "5000:5000"
+    environment:
+      - IO_PORT=5310
+      - PORT=5000
+      - DB_NAME=website_test
+      - DB_USER=postgres
+      - DB_PASSWORD=jopajopa
+      - DB_HOST=db
+      - DB_PORT=5432
+      - SECRET_KEY=secret_key_dont_look_here
+      - CORS_ORIGIN="http://localhost:3000/"
+      - CLIENT_ID=1c1fdc869bff46f3ae0047f0faddbf90
+      - CLIENT_SECRET=d062644393244768936edf6a1663195b
+    restart: always
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15.1
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=jopajopa
+      - POSTGRES_DB=website_test
