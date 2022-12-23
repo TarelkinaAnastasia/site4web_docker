@@ -30,9 +30,9 @@ const Home = () => {
                 <Card.Footer className={"text-muted pb-4"}>
                     <Card.Title>Приятного просмотра сайта</Card.Title>
                     <Card.Text>
-                        Наеемся, что он Вам понравится, а не вызовет желания поскорее его закрыть)
+                        Надеемся, что он Вам понравится, а не вызовет желания поскорее его закрыть)
                     </Card.Text>
-                    <Card.Link href="#">GitHub репозиторий проекта</Card.Link>
+                    <Card.Link href="https://github.com/TarelkinaAnastasia/site4web_docker">GitHub репозиторий проекта !</Card.Link>
                 </Card.Footer>
             </Card>
             
